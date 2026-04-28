@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://Minilbengine:YOUR_REAL_PASSWORD@minilbengine-db.imotcoy.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://Minilbengine:Test1234@minilbengine-db.imotcoy.mongodb.net/?retryWrites=true&w=majority")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("Mongo error:", err));
 
