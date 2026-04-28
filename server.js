@@ -1,25 +1,12 @@
-const express = require("express");
-const mongoose = require("mongoose");
-
-const app = express();
-
-app.use(express.json());
-
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("Mongo error:", err));
-
-app.get("/", (req, res) => {
-  res.json({ status: "ok", message: "engine alive" });
-});
-
-app.get("/api/jobs", (req, res) => {
-  res.json({ status: "ok", message: "jobs endpoint alive" });
-});
-
-const PORT = process.env.PORT || 10000;
-
-app.listen(PORT, () => {
-  console.log(`Looney Bin Engine running on port ${PORT}`);
-});
+{
+  "name": "minilbengine",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  }
+}
