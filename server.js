@@ -5,10 +5,12 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://Minilbengine:Test1234@minilbengine-db.imotcoy.mongodb.net/?retryWrites=true&w=majority")
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("Mongo error:", err));
+  .catch(err => console.log("Mongo error:", err));
 
+// Routes
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "engine alive" });
 });
@@ -17,6 +19,7 @@ app.get("/api/jobs", (req, res) => {
   res.json({ status: "ok", message: "jobs endpoint alive" });
 });
 
+// Port
 const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, () => {
